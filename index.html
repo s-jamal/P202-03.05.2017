@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function maxSide100Triangle(a,b,c){
+        //     var sideLengths = [];
+        //     if (!isNaN(a) && !isNaN(b) && !isNaN(c) && 
+        //         a<=100 && b<=100 && c<=100){
+        //         sideLengths[0] = a;
+        //         sideLengths[1] = b;
+        //         sideLengths[2] = c;
+        //         return sideLengths;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+
+        function triangleTypeLessThan100(a, b, c){
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c) && 
+                a<=100 && b<=100 && c<=100){
+               
+               switch(true){
+                    case (a==b && b==c):
+                        return "equilateral";
+                        break;
+                    case (a==b || a==c || b==c):
+                        return "isosceles";
+                        break;
+                    default:
+                        return "scalene";
+                        break;   
+                }
+            } else {
+                return false;
+            }
+        }
+        /**** TRIANGLE TYPE ****/
+        // var first = Number(prompt("1st side: "));
+        // var second = Number(prompt("2nd side: "));
+        // var third = Number(prompt("3rd side: "));
+
+        // var triType = triangleTypeLessThan100(first, second, third);
+        // if (triType) {
+        //     console.log("Triangle Type: " + triType + ".");
+        // } else {
+        //     console.log("Duzgun uzunluqlar daxil edin.")
+        // }
+
+        function noteCount(amount) {
+            var note=0;
+            if (!isNaN(amount)){
+                if (amount%5 == 0){
+                    if (Math.floor(amount/100)>=1){
+                        note += Math.floor(amount/100);
+                        amount %= 100;
+                    }
+                    if (Math.floor(amount/50)>=1){
+                        note += Math.floor(amount/50);
+                        amount %= 50;
+                    }
+                    if (Math.floor(amount/20)>=1){
+                        note += Math.floor(amount/20);
+                        amount %= 20;
+                    }
+                    if (Math.floor(amount/10)>=1){
+                        note += Math.floor(amount/10);
+                        amount %= 10;
+                    }
+                    if (Math.floor(amount/5)>=1){
+                        note += Math.floor(amount/5);
+                        //amount %= 5;
+                    }
+                    return note;
+                } else {
+                   var qaliq = amount%5;
+                    return "5den kichik eskinaslar yoxdur. "+
+                        qaliq+" manat verile bilmiyecek."+
+                        " 5e bolunen eded daxil edin."
+                }
+            } else {
+                return false;
+            }
+        }
+
+        function switchNoteCount(amount){
+            var note=0;
+            if (!isNaN(amount)){
+                if (amount%5 == 0){
+                    switch (true){
+                        case (Math.floor(amount/100)>=1):
+                            note += Math.floor(amount/100);
+                            amount %= 100;
+                        case (Math.floor(amount/50)>=1):
+                            note += Math.floor(amount/50);
+                            amount %= 50;
+                        case (Math.floor(amount/20)>=1):
+                            note += Math.floor(amount/20);
+                            amount %= 20;
+                        case (Math.floor(amount/10)>=1):
+                            note += Math.floor(amount/10);
+                            amount %= 10;
+                        case (Math.floor(amount/5)>=1):
+                            note += Math.floor(amount/5);
+                            //amount %= 5;
+                    }
+                    return note;
+                } else {
+                    var qaliq = amount%5;
+                    return "5den kichik eskinaslar yoxdur. "+
+                        qaliq+" manat verile bilmiyecek."+
+                        " 5e bolunen eded daxil edin."
+                }
+            } else {
+                return false;
+            }
+        }
+
+        /**** CASH MACHINE ****/
+        // var inputAmount = Number(prompt("Lazim olan meblegi daxil edin: "));
+        // var result = switchNoteCount(inputAmount);
+        
+        // switch (typeof(result)){
+        //     case "number":
+        //         console.log("Bu emeliyatda en azi " + result + " eded eskinas istifade olunacaq.");
+        //         break;
+        //     case "string":
+        //         console.log(result);
+        //         break;
+        //     default:
+        //         console.log("Duzgun eded daxil edin.")
+        // }
+        
+
+
+    </script>
+</body>
+</html>
